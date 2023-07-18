@@ -18,19 +18,19 @@ const Signup: React.FC = () => {
     <div className="justify-center items-center">
       <Card>
         <TextField 
-          label="Username" 
+          value="Username" 
           name="username" 
           type="text" 
           onChange={(e) => setUsername(e.target.value)} 
         />
         <TextField 
-          label="Email" 
+          value="Email" 
           name="email" 
           type="email" 
           onChange={(e) => setEmail(e.target.value)} 
         />
         <TextField 
-          label="Password" 
+          value="Password" 
           name="password" 
           type="password" 
           onChange={(e) => setPassword(e.target.value)} 

@@ -17,13 +17,13 @@ function Login() {
     <div className="justify-center items-center">
       <Card>
         <TextField 
-          label="Email" 
+          value="Email" 
           name="email" 
           type="email" 
           onChange={(e) => setEmail(e.target.value)} 
         />
         <TextField 
-          label="Password" 
+          value="Password" 
           name="password" 
           type="password" 
           onChange={(e) => setPassword(e.target.value)} 
