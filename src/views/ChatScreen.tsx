@@ -4,8 +4,8 @@ import InputArea from '../components/InputArea';
 import { Message } from '../models/Message';
 
 const dummyMessages = [
-  { id: '1', conversationId: '123', senderId: 'AI', content: 'Hello, how can I assist you?', timestamp: '10:00' },
-  { id: '2', conversationId: '123', senderId: 'User', content: 'I need some help.', timestamp: '10:01' },
+  { id: '1', conversationId: '123', senderId: 'AI', content: 'Hello, how can I assist you?', timestamp: new Date(Date.now()) },
+  { id: '2', conversationId: '123', senderId: 'User', content: 'I need some help.', timestamp: new Date(Date.now() + 1000) },
 ];
 
 function ChatScreen() {
@@ -19,7 +19,7 @@ function ChatScreen() {
         senderId: 'User',
         conversationId: '123',
         content: messageText,
-        timestamp: new Date().toISOString(),
+        timestamp: new Date(Date.now()),
         sent: false,
       },
     ]);

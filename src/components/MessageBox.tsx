@@ -4,7 +4,7 @@ function MessageBox({senderId, content, timestamp}: Message) {
   return (
     <div className={senderId === 'AI' ? 'text-left' : 'text-right'}>
       <div>{content}</div>
-      <div>{timestamp}</div>
+      <div>{timestamp.toISOString()}</div>
     </div>
   );
 }

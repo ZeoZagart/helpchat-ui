@@ -3,7 +3,7 @@ export type Message = {
 	conversationId: string;
 	senderId: string; // sender's userId 
 	content: string;
-	timestamp: string;
+	timestamp: Date;
 	sent?: boolean;
   };
   
