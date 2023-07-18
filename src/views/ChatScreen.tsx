@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MessageList from '../components/MessageList';
 import InputArea from '../components/InputArea';
 import { Message } from '../models/Message';
+import { useUser } from '../context/UserContext';
 
 const dummyMessages = [
   { id: '1', conversationId: '123', senderId: 'AI', content: 'Hello, how can I assist you?', timestamp: new Date(Date.now()) },
@@ -9,6 +10,12 @@ const dummyMessages = [
 ];
 
 function ChatScreen() {
+  const {setUser} = useUser();
+
+  useEffect(() => {
+    setUser({id: 'User', name: 'User name', email: 'user@google.com'});
+  });
+
   const [messages, setMessages] = useState<Message[]>(dummyMessages);
 
   const sendMessage = (messageText: string) => {
