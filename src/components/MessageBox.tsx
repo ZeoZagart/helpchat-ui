@@ -1,5 +1,6 @@
 import { useUser } from "../context/UserContext";
 import { Message } from "../models/Message";
+import {Typography} from "./Text/Typography.tsx";
 
 function MessageBox({senderId, content, timestamp}: Message) {
   const { user } = useUser();
@@ -8,8 +9,13 @@ function MessageBox({senderId, content, timestamp}: Message) {
 
   return (
     <div className={isSelfMessage ? 'text-left' : 'text-right'}>
-      <div>{content}</div>
-      <div>{timestamp.toISOString()}</div>
+        <Typography variant={"p"}>
+            {content}
+        </Typography>
+        <br/>
+        <Typography>
+            {timestamp.toISOString()}
+        </Typography>
     </div>
   );
 }

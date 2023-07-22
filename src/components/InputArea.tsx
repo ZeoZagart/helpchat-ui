@@ -16,12 +16,12 @@ const InputArea: React.FC<InputAreaProps> = ({ onSend }) => {
   };
 
   return (
-    <div className="flex">
-      <TextField 
-        name="message" 
-        type="text" 
+      <div className="flex-shrink-0 flex p-4">
+      <TextField
+        name="message"
+        type="text"
         value={message}
-        onChange={(e) => setMessage(e.target.value)} 
+        onChange={(e) => setMessage(e.target.value)}
       />
       <Button onClick={handleSend}>Send</Button>
     </div>

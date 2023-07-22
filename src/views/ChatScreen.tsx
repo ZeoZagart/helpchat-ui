@@ -3,6 +3,8 @@ import MessageList from '../components/MessageList';
 import InputArea from '../components/InputArea';
 import { Message } from '../models/Message';
 import { useUser } from '../context/UserContext';
+import {VStack} from "../components/containers/Stack.tsx";
+import {Screen} from "../components/containers/Screen.tsx";
 
 const dummyMessages = [
   { id: '1', conversationId: '123', senderId: 'AI', content: 'Hello, how can I assist you?', timestamp: new Date(Date.now()) },
@@ -20,7 +22,7 @@ function ChatScreen() {
 
   const sendMessage = (messageText: string) => {
     setMessages(prevMessages => [
-      ...prevMessages, 
+      ...prevMessages,
       {
         id: Math.random().toString(),
         senderId: 'User',
@@ -33,10 +35,12 @@ function ChatScreen() {
   };
 
   return (
-    <div className="flex flex-col h-full">
-      <MessageList messages={messages}/>
-      <InputArea onSend={sendMessage}/>
-    </div>
+    <Screen>
+      <VStack>
+        <MessageList messages={messages}/>
+        <InputArea onSend={sendMessage}/>
+      </VStack>
+    </Screen>
   );
 }
 

@@ -7,7 +7,7 @@ interface MessageListProps {
 
 function MessageList({messages}: MessageListProps) {
   return (
-    <div className="flex flex-col overflow-y-auto">
+      <div className="flex flex-col flex-grow overflow-y-auto">
       {messages.map((message) => (
         <MessageBox key={message.id} {...message} />
       ))}
