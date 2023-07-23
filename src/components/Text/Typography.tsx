@@ -1,12 +1,13 @@
 import React from 'react';
 
 interface TypographyProps {
-    variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
+    variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'xs';
+    textAlign?: 'left' | 'right' | 'center'
     className?: string;
     children: React.ReactNode;
 }
 
-export const Typography: React.FC<TypographyProps> = ({ variant = 'p', children, className = '' }) => {
+export const Typography: React.FC<TypographyProps> = ({ variant = 'p', textAlign = 'left', children, className = '' }) => {
     let style = '';
 
     switch (variant) {
@@ -28,6 +29,9 @@ export const Typography: React.FC<TypographyProps> = ({ variant = 'p', children,
         case 'h6':
             style = 'text-lg';
             break;
+        case 'xs':
+            style = 'text-xs';
+            break;
         default:
             style = 'text-base';
     }
@@ -36,7 +40,7 @@ export const Typography: React.FC<TypographyProps> = ({ variant = 'p', children,
 
     return <text
         className={`${style} ${className} overflow-hidden break-words`}
-        style={{wordBreak: 'break-word', overflowY: 'auto', maxHeight: '100vh'}}
+        style={{wordBreak: 'break-word', overflowY: 'auto', maxHeight: '100vh', textAlign: textAlign}}
     >
         {children}
     </text>;

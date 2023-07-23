@@ -8,16 +8,16 @@ function MessageBox({senderId, content, timestamp}: Message) {
   const isSelfMessage = senderId === user?.id;
 
   return (
-    <div className={isSelfMessage ? 'text-left' : 'text-right'}>
-        <Typography variant={"p"}>
-            {content}
-        </Typography>
-        <br/>
-        <Typography>
-            {timestamp.toISOString()}
-        </Typography>
+    <div className={isSelfMessage ? 'chat chat-start' : 'chat chat-end'}>
+      <Typography variant={"p"}>
+          {content}
+      </Typography>
+      <br />
+      <Typography variant={"xs"} textAlign="right">
+          {timestamp.toLocaleTimeString()}
+      </Typography>
     </div>
-  );
+  )
 }
 
 export default MessageBox;

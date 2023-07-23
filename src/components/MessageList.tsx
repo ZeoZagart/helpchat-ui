@@ -1,5 +1,6 @@
 import { Message } from '../models/Message';
 import MessageBox from './MessageBox';
+import { VStack } from './containers/Stack';
 
 interface MessageListProps {
   messages: Message[];
@@ -7,11 +8,11 @@ interface MessageListProps {
 
 function MessageList({messages}: MessageListProps) {
   return (
-      <div className="flex flex-col flex-grow overflow-y-auto">
+    <VStack>
       {messages.map((message) => (
         <MessageBox key={message.id} {...message} />
       ))}
-    </div>
+    </VStack>
   );
 }
 
