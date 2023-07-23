@@ -1,6 +1,7 @@
 import { Message } from '../models/Message';
 import MessageBox from './MessageBox';
 import { VStack } from './containers/Stack';
+import { StackItem } from './containers/StackItem';
 
 interface MessageListProps {
   messages: Message[];
@@ -8,9 +9,11 @@ interface MessageListProps {
 
 function MessageList({messages}: MessageListProps) {
   return (
-    <VStack>
+    <VStack overflow='scroll'>
       {messages.map((message) => (
-        <MessageBox key={message.id} {...message} />
+        <StackItem flexType='shrink'>
+          <MessageBox key={message.id} {...message} />
+        </StackItem>
       ))}
     </VStack>
   );

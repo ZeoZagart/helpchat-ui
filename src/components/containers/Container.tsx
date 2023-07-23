@@ -1,5 +1,10 @@
 import React from "react";
 
-export function Container({ children }: {children: React.ReactNode}) {
-    return <div className="app-container">{children}</div>;
+interface ContainerProps {
+    children: React.ReactNode;
+    alignContent?: 'left' | 'right' | 'center';
+}
+
+export function Container({ children, alignContent = 'center' }: ContainerProps) {
+    return <div className="flex" style={{alignContent: alignContent}}>{children}</div>;
 }

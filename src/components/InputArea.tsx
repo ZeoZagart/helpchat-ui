@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from '../components/Button';
 import TextField from '../components/TextField';
+import { HStack } from './containers/Stack';
 
 interface InputAreaProps {
   onSend: (message: string) => void;
@@ -16,15 +17,15 @@ const InputArea: React.FC<InputAreaProps> = ({ onSend }) => {
   };
 
   return (
-      <div className="flex-shrink-0 flex p-4">
-      <TextField
-        name="message"
-        type="text"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-      />
-      <Button onClick={handleSend}>Send</Button>
-    </div>
+      <HStack>
+        <TextField
+          name="message"
+          type="text"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <Button onClick={handleSend}>Send</Button>
+    </HStack>
   );
 };
 

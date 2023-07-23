@@ -5,6 +5,7 @@ import { Message } from '../models/Message';
 import { useUser } from '../context/UserContext';
 import {VStack} from "../components/containers/Stack.tsx";
 import {Screen} from "../components/containers/Screen.tsx";
+import { StackItem } from '../components/containers/StackItem.tsx';
 
 const dummyMessages = [
   { id: '1', conversationId: '123', senderId: 'AI', content: 'Hello, how can I assist you?', timestamp: new Date(Date.now()) },
@@ -36,9 +37,13 @@ function ChatScreen() {
 
   return (
     <Screen>
-      <VStack>
-        <MessageList messages={messages}/>
-        <InputArea onSend={sendMessage}/>
+      <VStack overflow='hidden'>
+        <StackItem flexType='grow'>
+          <MessageList messages={messages}/>
+        </StackItem>
+        <StackItem flexType='fix'>
+          <InputArea onSend={sendMessage}/>
+        </StackItem>
       </VStack>
     </Screen>
   );
