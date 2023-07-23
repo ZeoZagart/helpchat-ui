@@ -1,9 +1,34 @@
 import React from "react";
 
-export function VStack({ children }: {children: React.ReactNode}) {
-    return <div className="flex flex-col flex-grow space-y-4">{children}</div>;
+interface StackProps {
+    children: React.ReactNode;
+    overflow?: 'auto' | 'hidden' | 'scroll' | 'visible'
 }
 
-export function HStack({ children }: {children: React.ReactNode}) {
-    return <div className="flex space-x-4">{children}</div>;
+export function VStack({ children, overflow = 'auto' }: StackProps) {
+    let overflowProp = 'overflow-auto'
+    switch(overflow) {
+        case 'scroll':
+            overflowProp = `overflow-y-auto`
+            break;
+        default: 
+            overflowProp = `overflow-${overflow}`
+            break;
+    }
+
+    return <div className={`flex h-screen flex-col space-y-4 ${overflowProp}`}>{children}</div>;
+}
+
+export function HStack({ children, overflow = 'auto' }: StackProps) {
+    let overflowProp = 'overflow-auto'
+    switch(overflow) {
+        case 'scroll':
+            overflowProp = `overflow-x-auto`
+            break;
+        default: 
+            overflowProp = `overflow-${overflow}`
+            break;
+    }
+
+    return <div className={`flex h-screen flex-row space-x-4 ${overflowProp}`}>{children}</div>;
 }
