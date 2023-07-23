@@ -3,10 +3,9 @@ import React from "react";
 interface StackItemProps {
     children: React.ReactNode;
 	flexType?: 'fix' | 'auto' | 'shrink' | 'grow' | 'equal' | 'fill-parent';
-    overflow?: 'auto' | 'hidden' | 'scroll' | 'visible';
 }
 
-export function StackItem({ children, flexType = 'auto', overflow = 'hidden' }: StackItemProps) {
+export function StackItem({ children, flexType = 'auto' }: StackItemProps) {
     let flexProp = '';
     switch(flexType) {
         case 'auto':
