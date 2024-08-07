@@ -26,8 +26,8 @@ function ChatScreen() {
       ...prevMessages,
       {
         id: Math.random().toString(),
-        senderId: 'User',
-        conversationId: '123',
+        senderId: 'This user name',
+        conversationId: '100012',
         content: messageText,
         timestamp: new Date(Date.now()),
         sent: false,
