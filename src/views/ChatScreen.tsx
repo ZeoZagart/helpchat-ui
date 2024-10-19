@@ -25,7 +25,7 @@ function ChatScreen() {
     setMessages(prevMessages => [
       ...prevMessages,
       {
-        id: Math.random().toString(),
+        id: '12',
         senderId: 'Pokemon',
         conversationId: '123',
         content: messageText,
