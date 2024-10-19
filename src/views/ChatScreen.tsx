@@ -26,7 +26,7 @@ function ChatScreen() {
       ...prevMessages,
       {
         id: Math.random().toString(),
-        senderId: 'This user name',
+        senderId: 'Pokemon',
         conversationId: '100012',
         content: messageText,
         timestamp: new Date(Date.now()),
